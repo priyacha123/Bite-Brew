@@ -1,0 +1,52 @@
+.main{
+    width: 100%;
+    height: auto;
+}
+
+.main .search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.main .search-bar input {
+    width: 60vw;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* =============================================================CARD========================================================== */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.main .card {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main .card-content {
+    width: 300px;
+    height: auto;
+    /* margin: 10px; */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main .card-content img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
