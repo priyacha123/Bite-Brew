@@ -1,6 +1,9 @@
 import React from 'react'
 
-const Card = () => {
+
+
+
+const Card = (props) => {
   return (
        <>
           {/* - Resturant List
@@ -10,10 +13,12 @@ const Card = () => {
           - Cusines */}
         <div className="card">
           <div className="card-content">
-            <img src="https://m.media-amazon.com/images/I/71XtBLJgSsS._UF350,350_QL80_.jpg" alt="" />
-            <h2>Resturant Name</h2>
-            <h3>Rating: 4.5</h3>
-            <h4>Cusines: Indian, Chinese</h4>
+            <img src= {`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${props.cloudinaryImageId}`} alt={props.name} />
+            <h2>{props.name} </h2>
+            <p><strong>Price: </strong>{props.costForTwo} </p>
+            <p> <strong>Cuisines: </strong> {props.cuisines.join(", ")}</p>
+            <p> <strong>Distance: </strong> {props.sla.lastMileTravelString} </p>
+            <p> <strong>Rating: </strong> {props.avgRating} star</p>
           </div>
         </div>
             
