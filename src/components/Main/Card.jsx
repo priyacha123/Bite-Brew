@@ -1,6 +1,4 @@
-import React from 'react'
-
-
+import CDN_URL from "../../utils/constants"
 
 
 const Card = (props) => {
@@ -13,7 +11,7 @@ const Card = (props) => {
           - Cusines */}
         <div className="card">
           <div className="card-content">
-            <img src= {`https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/${props.cloudinaryImageId}`} alt={props.name} />
+            <img src= { CDN_URL + props.cloudinaryImageId } alt={props.name} />
             <h2>{props.name} </h2>
             <p><strong>Price: </strong>{props.costForTwo} </p>
             <p> <strong>Cuisines: </strong> {props.cuisines.join(", ")}</p>
