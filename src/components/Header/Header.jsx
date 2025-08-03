@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../../assets/logo.jpg" 
 import "./Header.css"
 
 const Header = () => {
+  const [loginBtn, setLoginBtn] = useState("Login");
   return (
     <>
     <nav className="header">
@@ -14,6 +15,13 @@ const Header = () => {
         <li>Contact</li>
         <li>About</li>
         <li>Cart</li>
+        <button
+        onClick={() => {
+          loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login") 
+        }}
+        >
+          {loginBtn}
+        </button>
       </ul>
     </nav>
     </>
