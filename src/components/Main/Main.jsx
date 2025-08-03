@@ -1,10 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import "./Main.css";
-import restaurantAPI from "../../utils/restaurantAPI";
 
 const Main = () => {
-  const [resLists, setResLists] = useState(restaurantAPI.restaurants);
+  const [resLists, setResLists] = useState([]);
+
+  useEffect( () => {
+    fetchData();
+  }, [] );
+
+  const fetchData = async () => {
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.29844139999999&lng=77.99313599999999&page_type=DESKTOP_WEB_LISTING");
+
+    const json = await data.json();
+
+    console.log(json);
+    // optional chaining to access nested data
+    setResLists(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+  }
 
   return (
     <>
@@ -16,7 +29,7 @@ const Main = () => {
           <button 
           className="filter-btn"
           onClick={ () => {
-            const filteredList = resLists.filter( (rating) => rating.info.avgRating > 4.5);
+            const filteredList = resLists.filter( (rating) => rating.info.avgRating > 4.2);
             setResLists(filteredList);
           }}
           >Filter</button>
