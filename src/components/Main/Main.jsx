@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import "./Main.css";
+import Shimmer from "../Shimmer";
 
 const Main = () => {
   const [resLists, setResLists] = useState([]);
@@ -19,7 +20,12 @@ const Main = () => {
     setResLists(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
   }
 
-  return (
+  // conditional rendering
+  // if(resLists.length === 0) {
+  //   return <Shimmer />
+  // }
+
+  return resLists.length === 0 ? <Shimmer /> : (
     <>
       <div className="main">
         <div className="search-bar">
