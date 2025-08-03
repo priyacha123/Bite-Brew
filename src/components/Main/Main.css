@@ -15,8 +15,18 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
+    margin-right: 10px;
 }
 
+.searchBtn{
+    padding: 10px 20px;
+    background-color: #ff6347; /* Tomato color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px
+}
 /* =============================================================CARD========================================================== */
 .card-container {
     display: flex;
