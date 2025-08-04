@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import "./Main.css";
 import Shimmer from "../Shimmer";
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const [resLists, setResLists] = useState([]);
@@ -59,21 +60,26 @@ const Main = () => {
           >
             Search
           </button>
-          <button
+            <button
             className="filterBtn"
             onClick={() => {
               const filteredList = resLists.filter(
-                (rating) => rating.info.avgRating > 4.2
+                (rating) => rating.info.avgRatingString > 4.2
               );
-              setResLists(filteredList);
+              setFilteredResList(filteredList);
             }}
           >
             Filter
           </button>
         </div>
+          
         <div className="card-container">
           {filteredResList.map((restaurant) => {
-            return <Card {...restaurant.info} key={restaurant.info.id} />;
+            return <Link
+            key={restaurant.info.id}
+            to={"/restaurant/" +  + restaurant.info.id}
+            ><Card {...restaurant.info} />;
+            </Link> 
           })}
         </div>
       </div>

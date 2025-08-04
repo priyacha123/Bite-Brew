@@ -1,4 +1,4 @@
-import CDN_URL from "../../utils/constants"
+import { CDN_URL } from "../../utils/constants"
 
 
 const Card = (props) => {
@@ -16,7 +16,7 @@ const Card = (props) => {
             <p><strong>Price: </strong>{props.costForTwo} </p>
             <p> <strong>Cuisines: </strong> {props.cuisines.join(", ")}</p>
             <p> <strong>Distance: </strong> {props.sla.lastMileTravelString} </p>
-            <p> <strong>Rating: </strong> {props.avgRating} star</p>
+            <p> <strong>Rating: </strong> {props.avgRatingString} star</p>
           </div>
         </div>
             
