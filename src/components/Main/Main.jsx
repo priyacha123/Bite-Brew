@@ -3,6 +3,7 @@ import Card from "./Card";
 import "./Main.css";
 import Shimmer from "../Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const Main = () => {
   const [resLists, setResLists] = useState([]);
@@ -29,6 +30,12 @@ const Main = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false) {
+    return <h1>Looks like you're offline!!! Plzz check your connection</h1>
+  }
 
   // conditional rendering
   // if(resLists.length === 0) {
