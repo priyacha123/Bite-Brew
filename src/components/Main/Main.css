@@ -27,6 +27,17 @@
     cursor: pointer;
     font-size: 16px
 }
+
+.filterBtn {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
 /* =============================================================CARD========================================================== */
 .card-container {
     display: flex;
