@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from "../../assets/logo.jpg" 
 import "./Header.css"
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../../utils/useOnlineStatus';
+import UserContext from '../../utils/UserContext';
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
 
+  const { loggedUser } = useContext(UserContext)
   const onlineStatus = useOnlineStatus();
 
   return (
@@ -20,6 +22,7 @@ const Header = () => {
           <Link to="/"> Home </Link>
           <Link to="/about"> About </Link>
           <Link to="/contact"> Contact </Link>
+          <Link to="/grocery"> Grocery </Link>
           <Link to="/cart"> Cart </Link>
         <button
         onClick={() => {
@@ -27,6 +30,7 @@ const Header = () => {
         }}
         >
           {loginBtn}
+          {loggedUser}
         </button>
       </ul>
     </nav>

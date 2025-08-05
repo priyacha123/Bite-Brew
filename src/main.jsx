@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
@@ -9,6 +9,10 @@ import Error from "./components/Error/Error.jsx";
 import Main from "./components/Main/Main.jsx";
 import Cart from "./components/Cart/Cart.jsx";
 import RestaurantMenu from "./components/Restaurant Menu/RestaurantMenu.jsx";
+// import Grocery from "./components/Grocery.jsx";
+
+// lazy loading
+const Grocery = lazy(() => import("./components/Grocery.jsx") )
 
 const approuter = createBrowserRouter([
   {
@@ -26,6 +30,10 @@ const approuter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/grocery",
+        element: <Suspense fallback={<h1>Loading......</h1>} > <Grocery /> </Suspense>
       },
       {
         path: "/cart",
