@@ -4,12 +4,16 @@ import "./Header.css"
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../../utils/useOnlineStatus';
 import UserContext from '../../utils/UserContext';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("Login");
 
-  const { loggedUser } = useContext(UserContext)
+  const { loggedInUser } = useContext(UserContext)
   const onlineStatus = useOnlineStatus();
+
+// selector -> subscribing to store
+const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <>
@@ -23,15 +27,15 @@ const Header = () => {
           <Link to="/about"> About </Link>
           <Link to="/contact"> Contact </Link>
           <Link to="/grocery"> Grocery </Link>
-          <Link to="/cart"> Cart </Link>
+          <Link to="/cart"> Cart {" "} {cartItems.length} items </Link>
         <button
         onClick={() => {
           loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login") 
         }}
         >
-          {loginBtn}
-          {loggedUser}
+          {loginBtn}:{" "}
         </button>
+        <Link to="/cart"> {loggedInUser} </Link>
       </ul>
     </nav>
     </>

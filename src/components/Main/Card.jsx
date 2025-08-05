@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { CDN_URL } from "../../utils/constants";
+import UserContext from "../../utils/UserContext";
 
 const Card = (props) => {
   const {
@@ -9,6 +11,8 @@ const Card = (props) => {
     avgRatingString,
     cloudinaryImageId,
   } = props;
+
+  const { loggedInUser }= useContext(UserContext);
   return (
     <>
       <div className="card">
@@ -31,11 +35,12 @@ const Card = (props) => {
             {" "}
             <strong>Rating: </strong> {avgRatingString} star
           </p>
+          <p> {loggedInUser} </p>
         </div>
-        <div className="card-actions">
+        {/* <div className="card-actions">
           <button className="add-to-cart">Add to Cart</button>
           <button className="view-details">View Details</button>
-          </div>
+          </div> */}
       </div>
     </>
   );

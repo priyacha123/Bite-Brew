@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Card from "./Card";
 import "./Main.css";
 import Shimmer from "../Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import { RES_API } from "../../utils/constants";
+import UserContext from "../../utils/UserContext";
 
 const Main = () => {
   const [resLists, setResLists] = useState([]);
@@ -31,6 +32,8 @@ const Main = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   const onlineStatus = useOnlineStatus();
 
@@ -81,6 +84,10 @@ const Main = () => {
           >
             Filter
           </button>
+
+          <input 
+          value={loggedInUser}
+          onChange={(e) => setUserName(e.target.value)} />
         </div>
 
         <div className="card-container">
