@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Card from "./Card";
 import "./Main.css";
 import Shimmer from "../Shimmer";
@@ -22,7 +22,7 @@ const Main = () => {
     const data = await fetch(RES_API);
     const json = await data.json();
 
-    console.log("REs API" + json);
+    console.log("REs API", json);
     console.log(json);
     // optional chaining to access nested data
     setResLists(
@@ -54,6 +54,7 @@ const Main = () => {
         <div className="search-bar">
           <input
             type="text"
+            data-testid="searchInput"
             placeholder="Search"
             value={searchText}
             onChange={(e) => {
@@ -95,12 +96,12 @@ const Main = () => {
             return (
               <Link
                 key={restaurant.info.id}
-                to={"/restaurant/" + +restaurant.info.id}
+                to={"/restaurant/" + restaurant.info.id}
               >
                 {/* higher order component */}
                 {/* {restaurant.info.isOpen ? <ResWithLable {...restaurant.info} /> : 
                 <Card {...restaurant.info} /> } */}
-                  <Card {...restaurant.info} />
+                  <Card resData= {restaurant?.info} />
               </Link>
             );
           })}

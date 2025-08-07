@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ItemsList from '../Restaurant Menu/ItemsList'
 import { clearCart } from '../../utils/cartSlice'

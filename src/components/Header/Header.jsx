@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import logo from "../../assets/logo.jpg" 
 import "./Header.css"
 import { Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ const cartItems = useSelector((store) => store.cart.items);
           loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login") 
         }}
         >
-          {loginBtn}:{" "}
+          {loginBtn}
         </button>
         <Link to="/cart"> {loggedInUser} </Link>
       </ul>

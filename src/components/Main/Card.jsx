@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CDN_URL } from "../../utils/constants";
 import UserContext from "../../utils/UserContext";
 
-const Card = (props) => {
+const Card = ({ resData }) => {
   const {
     name,
     costForTwo,
@@ -10,13 +10,13 @@ const Card = (props) => {
     sla,
     avgRatingString,
     cloudinaryImageId,
-  } = props;
+  } = resData;
 
   const { loggedInUser }= useContext(UserContext);
   return (
     <>
       <div className="card">
-        <div className="card-content">
+        <div data-testid="resCard" className="card-content">
           <img src={CDN_URL + cloudinaryImageId} alt={name} />
           <h2>{name} </h2>
           <p>
